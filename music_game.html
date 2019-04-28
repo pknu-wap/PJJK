@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function receive_get_data(param){
+        var result=null, tmp=[];
+        var items=window.location.search.substr(1).split("&");
+        for(var i=0; i<items.length; i++){
+          tmp=items[i].split("=");
+          if(tmp[0]==param) result=decodeURIComponent(tmp[1]);
+        }
+        return result;
+      }
+      var username = receive_get_data("username"); //닉네임
+      var number = Number(receive_get_data("number")); //문제수
+      var genre = receive_get_data("genre"); //장르
+      var decades = receive_get_data("decades"); //년도
+
+      document.getElementById("a").innerHTML=number;
+    </script>
+    <p id="a">sd</p>
+  </body>
+</html>

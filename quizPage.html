@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      function receive_get_data(param){
+        var result=null, tmp=[];
+        var items=window.location.search.substr(1).split("&");
+        for(var i=0; i<items.length; i++){
+          tmp=items[i].split("=");
+          if(tmp[0]==param) result=decodeURIComponent(tmp[1]);
+        }
+        return result;
+      }
+      var username = receive_get_data("username"); //닉네임
+      var number = Number(receive_get_data("number")); //문제수
+      var genre = receive_get_data("genre"); //장르
+      var decades = receive_get_data("decades"); //년도
+    </script>
+    <script type="text/javascript" src="./changedDB.js"></script>
+    <script type="text/javascript" src="./quizPage.js"></script>
+  </head>
+  <body>
+    <div>문제 <span id="quiz_number"></span></div>
+
+    <audio autoplay controls id="myautoload">
+      <source id="music_source" src="" type="audio/mp3">
+    </audio>
+
+    <div>
+    <input id="user_answer_input"/>
+    <button type="button" value="pass" onClick="Next.next_quiz();">패스</button>
+    <button type="button" value="submit" onClick="Check.check_func();">확인</button>
+    <div>
+
+
+
+  </body>
+</html>
